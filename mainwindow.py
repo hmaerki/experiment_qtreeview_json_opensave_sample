@@ -2,12 +2,12 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.14.1
+# Created by: PySide6 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide6 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow(object):
@@ -36,13 +36,13 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-        self.actionOpen = QtWidgets.QAction(MainWindow)
+        self.actionOpen = QtGui.QAction(MainWindow)
         self.actionOpen.setObjectName("actionOpen")
-        self.actionSave = QtWidgets.QAction(MainWindow)
+        self.actionSave = QtGui.QAction(MainWindow)
         self.actionSave.setObjectName("actionSave")
-        self.actionAddChild = QtWidgets.QAction(MainWindow)
+        self.actionAddChild = QtGui.QAction(MainWindow)
         self.actionAddChild.setObjectName("actionAddChild")
-        self.actionDelete = QtWidgets.QAction(MainWindow)
+        self.actionDelete = QtGui.QAction(MainWindow)
         self.actionDelete.setObjectName("actionDelete")
         self.menuFile.addAction(self.actionOpen)
         self.menuFile.addAction(self.actionSave)

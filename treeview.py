@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
  
 class Item(object):
     def __init__(self, _parent=None, _dict={}):
@@ -73,10 +73,10 @@ class Model(QtCore.QAbstractItemModel):
  
     def data(self, index, role):
         if not index.isValid():
-            return QtCore.QVariant()
+            return None
         if role == QtCore.Qt.EditRole or role == QtCore.Qt.DisplayRole:
             return index.internalPointer().data( self.column(index.column()) )
-        return QtCore.QVariant()
+        return None
  
     def flags(self, index):
         return QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable

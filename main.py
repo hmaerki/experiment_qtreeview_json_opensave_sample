@@ -1,8 +1,8 @@
 import json
 import sys
 from mainwindow import Ui_MainWindow
-from treeview import Model, Delegate, Item
-from PyQt5 import QtWidgets, QtCore
+from treeview import Model, Delegate
+from PySide6 import QtWidgets, QtCore
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, app):
@@ -101,7 +101,7 @@ def main():
     app = QtWidgets.QApplication(sys.argv)
     window = MainWindow(app)
     window.show()
-    app.exec_()
+    app.exec()
  
 if __name__ == '__main__':
     main()
