@@ -28,6 +28,16 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QTableView" name="tableView">
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -36,7 +46,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -45,6 +55,7 @@
     </property>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
+    <addaction name="actionOpenTable"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -52,6 +63,8 @@
     </property>
     <addaction name="actionAddChild"/>
     <addaction name="actionDelete"/>
+    <addaction name="actionAdd_Table_Row"/>
+    <addaction name="actionDelete_Table_Row"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -59,12 +72,12 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpen">
    <property name="text">
-    <string>Open</string>
+    <string>OpenTree</string>
    </property>
   </action>
   <action name="actionSave">
    <property name="text">
-    <string>Save</string>
+    <string>SaveTree</string>
    </property>
   </action>
   <action name="actionAddChild">
@@ -75,6 +88,21 @@
   <action name="actionDelete">
    <property name="text">
     <string>Delete</string>
+   </property>
+  </action>
+  <action name="actionOpenTable">
+   <property name="text">
+    <string>OpenTable</string>
+   </property>
+  </action>
+  <action name="actionAdd_Table_Row">
+   <property name="text">
+    <string>Add Table Row</string>
+   </property>
+  </action>
+  <action name="actionDelete_Table_Row">
+   <property name="text">
+    <string>Delete Table Row</string>
    </property>
   </action>
  </widget>
