@@ -6,6 +6,22 @@ import tableview
 from PySide6 import QtWidgets, QtCore
 
 
+# See: https://github.com/yjg30737/pyside-database-chart-example/blob/main/pyside_database_chart_example/db.py
+class FilterProxyModel(QtCore.QSortFilterProxyModel):
+    def __init__(self):
+        super().__init__()
+        self.__searchedText = ''
+
+    @property
+    def searchedText(self):
+        return self.__searchedText
+
+    @searchedText.setter
+    def searchedText(self, value):
+        self.__searchedText = value
+        self.invalidateFilter()
+
+
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, app):
         super().__init__()
@@ -29,10 +45,24 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.table_model = tableview.Model(self)
 
-        self.ui.tableView.setModel(self.table_model)
+        # init the proxy model
+        self.__proxyModel = FilterProxyModel()
+        # set the table model as source model to make it enable to feature sort and filter function
+        self.__proxyModel.setSourceModel(self.table_model)
+
+        self.ui.tableView.setModel(self.__proxyModel)
         self.ui.actionOpenTable.triggered.connect(self.open_view_json)
 
         self.open_view_json(filename="data_table.json")
+
+        if False:
+            self.__proxyModel.setFilterKeyColumn(1)
+            self.__proxyModel.setFilterRegularExpression("Name A")
+
+        if False:
+            self.__proxyModel.setFilterKeyColumn(0)
+            self.__proxyModel.setFilterRegularExpression("Part 1")
+
 
     def open_json(self, filename):
         def recursion(_part, _parent, _parts):
